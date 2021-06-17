@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cactus</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.12.0/devicon.min.css">
+</head>
+
+<body>
+    <section>
+        <div class="bg"></div>
+        <header>
+            <a href="#" class="logo">Cactus</a>
+            <div class="toggle"></div>
+            <ul class="navegacao">
+                <li><a href="" class="active">Home</a></li>
+                <li><a href="">Produts</a></li>
+                <li><a href="">What's New</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </header>
+        <section id="conteudo">
+            <div class="texto">
+                <h3>Travis Scott</h3>
+                <p>With a ton of Nike collabs behind him, Travis looks to a future that includes a second Jordan 6 that
+                    dropped today, two Air Jordan 1s designed in collaboration with Hiroshi Fujiwara’s Fragment Design.
+                </p>
+                <a href="">Buy</a>
+            </div>
+            <div class="img-tenis">
+                <img src="img/jorda2.png" alt="" class="sneakers">
+            </div>
+        </section>
+
+        <ul class="thumb">
+            <li data-text="Jordan 1" class="active"><img class="alternative" src="img/jorda2.png"
+                    onclick="sliderImage('img/jorda2.png');changeColor('#6E4F44')"></li>
+            <li data-text="Air force 1"><img src="img/air-force1.jpg"
+                    onclick="sliderImage('img/air-force1.jpg');changeColor('#B49C73')"></li>
+            <li data-text="Jordan 6"><img src="img/jordan1.jpg"
+                    onclick="sliderImage('img/jordan1.jpg');changeColor('#556052')"></li>
+        </ul>
+        <ul class="social">
+            <li><a href="https://www.linkedin.com/in/lucas-c-0621811a7/"><i class="devicon-linkedin-plain"></i></a></li>
+            <li><a href="https://github.com/LucasViniciusC"><i class="devicon-github-original"></i></a></li>
+        </ul>
+    </section>
+
+    <script>
+        //Criando um toggler do header para a navegação mobile 
+        let toggler = document.querySelector('.toggle');
+        let navegacao = document.querySelector('.navegacao');
+        toggler.onclick = function () {
+            toggler.classList.toggle('active');
+            navegacao.classList.toggle('active');
+        }
+        //Mudando o background ao clicar no respectivo Sneaker
+        function changeColor(color) {
+            const bg = document.querySelector('.bg');
+            bg.style.background = color;
+        }
+
+        //Mudando a imagem ao clicar
+        function sliderImage(anything) {
+            document.querySelector('.sneakers').src = anything;
+        }
+        // Efeito de escrita se baseando no data-text de cada li
+        let el = document.querySelectorAll('.thumb li');
+        for (let i = 0; i < el.length; i++) {
+            el[i].onclick = function () {
+                var c = 0;
+                while (c < el.length) {
+                    el[c++].className = 'check';
+                }
+                el[i].className = 'check active';
+            }
+        }
+    </script>
+</body>
+
+</html>
